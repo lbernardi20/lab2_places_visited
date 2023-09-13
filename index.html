@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+    var pointIcon = L.icon({
+    iconUrl: 'point.png', // url that links to the icon image file
+    iconSize:     [24, 24], // size of the icon image in pixels
+    iconAnchor:   [14, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+    popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+});
+var marker1 = L.marker([42.5919972,-89.6624253], {icon: pointIcon}).addTo(map);
+var marker2 = L.marker([38.8407733,-105.0425251], {icon: pointIcon}).addTo(map);
+var marker3 = L.marker([46.5624005,-90.4376601], {icon: pointIcon}).addTo(map);
+var pic1 = '<img src="https://www.lafayettecountywi.org/sites/default/files/styles/gallery500/public/imageattachments/trails/page/4951/1a5ba865d9db0587ecae5fa26bfa9c65.jpg?itok=iwFuJZgN" alt="trail" width="250">';
+var pic2 = '<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Pikespeak.JPG" alt="pikes peak mountain top" width="250">';
+var pic3 = '<img src="https://f2x9r3j4.rocketcdn.me/wp-content/uploads/2019/06/img_1683.jpg" alt="sunset on lake superior at saxon harbor" width="250">';
+marker1.bindPopup('<p style="color:green; font-weight:bold"> Visited the Cheese Country Trail many times (Monroe, WI)</p>' + pic1);
+marker2.bindPopup('<p style="color:brown; font-weight:bold">Visited Pikes Peak in 2021</p>' + pic2);
+marker3.bindPopup('<p style="color:blue; font-weight:bold">One of my favorite spots I visit on Lake Superior (Saxon Harbor, WI)</p>' + pic3);
+        </script>
+   </body>
+</html>
